@@ -27,14 +27,7 @@ const selectLink = () => {
 
   if (currentSection) {
     if (activeLink === links[currentSection.index]) return;
-
-    if (!activeLink) {
-      activeLink = links[currentSection.index];
-      activeLink.classList.add("active");
-      return;
-    }
-
-    activeLink.classList.remove("active");
+    if (activeLink) activeLink.classList.remove("active");  
     activeLink = links[currentSection.index];
     activeLink.classList.add("active");
   }
