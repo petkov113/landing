@@ -53,17 +53,35 @@
           </a>
         </div>
       </section>
-      <section class="content-wrapper" id="portfolio">
+      <section class="portfolio" id="portfolio">
         <div class="gallery">
-          <div class="gallery__item item-1">
+          <div class="gallery__item item-1" data-category="street">
             <span class="gallery__subtitle">street</span>
           </div>
-          <div class="gallery__item item-2">
+          <div class="gallery__item item-2" data-category="portrait">
             <span class="gallery__subtitle">portrait</span>
           </div>
-          <div class="gallery__item item-3">
+          <div class="gallery__item item-3" data-category="nature">
             <span class="gallery__subtitle">nature</span>
           </div>
+        </div>
+        <div class="carousel">
+          <btn class="carousel__button-back"></btn>
+          <button class="prev">prev</button>
+          <div class="siema">
+            <img src="./assets/img/main-2.jpg" alt="placeholder image"/>
+          </div>
+          <button class="next">next</button>
+        </div>
+        <div class="hidden">
+            <!-- street -->
+            <img src="./assets/img/street/0.jpg" data-category="street" alt="street" />
+            <img src="./assets/img/street/1.jpg" data-category="street" alt="street" />
+            <img src="./assets/img/street/2.jpg" data-category="street" alt="street" />
+            <!-- portrait -->
+            <img src="./assets/img/portrait/0.jpg" data-category="portrait" alt="portrait" />
+            <img src="./assets/img/portrait/1.jpg" data-category="portrait" alt="portrait" />
+            <img src="./assets/img/portrait/2.jpg" data-category="portrait" alt="portrait" />
         </div>
       </section>
       <section class="content-wrapper" id="pricing">

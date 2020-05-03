@@ -1022,4 +1022,10 @@ section,
             align-items: center;
   }
 }
+
+.carousel {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+}
 /*# sourceMappingURL=main.css.map */
