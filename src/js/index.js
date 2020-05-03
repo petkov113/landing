@@ -1,6 +1,6 @@
 import Siema from "siema";
 
-// burger menu
+//#region burger menu
 const burgerBtn = document.getElementById("btn");
 const menu = document.querySelector(".nav__menu");
 
@@ -8,8 +8,9 @@ burgerBtn.addEventListener("click", () => {
   burgerBtn.classList.toggle("active");
   menu.classList.toggle("active");
 });
+//#endregion
 
-// menu highlighting
+//#region menu highlighting
 const links = [...document.querySelectorAll(".nav__link")];
 const sections = [...document.querySelectorAll("section")].map(
   (section, index) => ({
@@ -37,34 +38,30 @@ const selectLink = () => {
 
 document.addEventListener("DOMContentLoaded", selectLink);
 document.addEventListener("scroll", selectLink);
+//#endregion
 
-// gallery
+//#region gallery
 const portfolio = document.querySelector(".portfolio");
-const gallery = new Siema({
-  loop: true
-});
+const gallery = new Siema({ loop: true });
+const images = document.querySelectorAll('.gallery-img'); 
+const nodes = [...images];
 
 portfolio.addEventListener("click", event => {
-  let item = event.target.closest(".gallery__item");
-  let closeBtn = event.target.closest(".carousel__button-back");
+  const item = event.target.closest(".gallery__item");
+  const closeBtn = event.target.closest(".carousel__button-back");
 
   if (item) {
-    let category = item.dataset.category;
+    const selectedCategory = item.dataset.category;
+    const filteredNodes = nodes.filter(node => node.dataset.category === selectedCategory)
     portfolio.style.transform = "translateX(-50%)";
-    let nodes = document.querySelectorAll(`img[data-category="${category}"]`);
-
-    console.log("Что суём:", nodes);
-    nodes.forEach(pic => gallery.append(pic));
-    console.log("Засовываем все:", gallery.innerElements);
-    gallery.remove(0);
-    console.log("Удаляем первый:", gallery.innerElements);
+    filteredNodes.forEach(node => gallery.append(node));
+    gallery.remove(0); 
   }
 
   if (closeBtn) {
     portfolio.style.transform = "translateX(0)";
-    const items = (gallery.innerElements);
-    for (let i = 0; i < items.length; i++) {
-      gallery.remove(i)
-    }
-   }
-})
+    const items = gallery.innerElements;
+    for (let i in items) gallery.remove(i);
+  }
+});
+//#endregion
