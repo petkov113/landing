@@ -271,7 +271,7 @@ section,
 }
 
 .intro {
-  background-image: url('/assets/img/main-1.jpg');
+  background-image: url("/assets/img/main-1.jpg");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;
@@ -491,7 +491,7 @@ section,
     color: $neutral-secondary;
     font-size: 30px;
     margin-right: 10px;
-    transition: .1s ease-in;
+    transition: 0.1s ease-in;
 
     &:hover {
       transform: scale(1.1);
@@ -680,18 +680,17 @@ section,
   padding-bottom: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   &__button {
-    flex: 1 1 auto;
     cursor: pointer;
 
     &-back {
-      background-image: url('/assets/img/icons/Icon_feather-arrow-left.svg');
+      background-image: url("/assets/img/icons/Icon_feather-arrow-left.svg");
       width: 60px;
       height: 19px;
       font-size: 30px;
-      color: $neutral-secondary;
+      background-color: #fff;
       position: absolute;
       left: 40px;
       top: 80px;
@@ -699,11 +698,36 @@ section,
       transition: all 0.1s ease-in;
 
       &:hover {
-        transform: scale(1.1)
+        transform: scale(1.1);
       }
     }
 
-    .prev {
+    &-prev {
+      margin-left: rem(40px);
+      background-color: #fff;
+      width: 10px;
+      height: 30px;
+      background-image: url("/assets/img/icons/Icon_ionic-md-arrow-dropleft.svg");
+    }
+    &-next {
+      margin-right: rem(40px);
+      background-color: #fff;
+      width: 10px;
+      height: 30px;
+      background-image: url("/assets/img/icons/Icon_ionic-md-arrow-dropleft.svg");
+      transform: rotate(180deg);
+    }
+  }
+  @media screen and (max-width: $phoneWidth) {
+    &__button-prev,
+    &__button-next {
+      display: none;
+    }
+  }
+  @media screen and (max-width: $tableWidth) {
+    &__button-prev,
+    &__button-next {
+      display: none;
     }
   }
 }
@@ -714,8 +738,8 @@ section,
 
 .siema {
   position: absolute;
-  top: 20%;
-  bottom: 5%;
+  top: 9%;
+  bottom: 4%;
   left: 20%;
   right: 20%;
 
@@ -724,7 +748,7 @@ section,
     height: 100%;
     text-align: center;
     padding: 2px;
-    &>div {
+    & > div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -733,5 +757,15 @@ section,
 
   img {
     max-height: 100%;
+  }
+
+  @media screen and (max-width: $phoneWidth) {
+    top: 15%;
+    left: 2%;
+    right: 2%;
+  }
+  @media screen and (max-width: $tableWidth) {
+    left: 5%;
+    right: 5%;
   }
 }

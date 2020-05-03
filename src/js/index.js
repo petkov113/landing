@@ -43,7 +43,7 @@ document.addEventListener("scroll", selectLink);
 //#region gallery
 const portfolio = document.querySelector(".portfolio");
 const gallery = new Siema({ loop: true });
-const images = document.querySelectorAll('.gallery-img'); 
+const images = document.querySelectorAll(".gallery-img");
 const nodes = [...images];
 
 portfolio.addEventListener("click", event => {
@@ -52,16 +52,27 @@ portfolio.addEventListener("click", event => {
 
   if (item) {
     const selectedCategory = item.dataset.category;
-    const filteredNodes = nodes.filter(node => node.dataset.category === selectedCategory)
+    const filteredNodes = nodes.filter(
+      node => node.dataset.category === selectedCategory
+    );
     portfolio.style.transform = "translateX(-50%)";
     filteredNodes.forEach(node => gallery.append(node));
-    gallery.remove(0); 
+    gallery.remove(0); // removing placeholder
   }
 
   if (closeBtn) {
     portfolio.style.transform = "translateX(0)";
     const items = gallery.innerElements;
-    for (let i in items) gallery.remove(i);
+
+    // removing elements from the gallery
+    // should'n be empthy, left element should be unique
+    for (let i = items.length - 1; i >= 0; i--) {
+      if (i === 0) { // adding placeholder
+        const placeholder = document.createElement("img");
+        gallery.append(placeholder); 
+      }
+      gallery.remove(i);
+    }
   }
 });
 //#endregion
