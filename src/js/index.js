@@ -45,6 +45,8 @@ const portfolio = document.querySelector(".portfolio");
 const gallery = new Siema({ loop: true });
 const images = document.querySelectorAll(".gallery-img");
 const nodes = [...images];
+const nextBtn = document.getElementById("btn-next");
+const prevBtn = document.getElementById("btn-prev");
 let clicked = false;
 
 portfolio.addEventListener("click", event => {
@@ -82,4 +84,7 @@ portfolio.addEventListener("click", event => {
     clicked = false;
   }
 });
+
+nextBtn.addEventListener('click', () => gallery.next())
+prevBtn.addEventListener('click', () => gallery.prev())
 //#endregion
