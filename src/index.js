@@ -1,3 +1,4 @@
+import "element-closest-polyfill";
 // JS
 import './js/'
 // SCSS

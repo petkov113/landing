@@ -25,7 +25,8 @@ let activeLink;
 
 const selectLink = () => {
   let currentSection = sections.find(
-    section => section.start <= scrollY && section.end > scrollY
+    section =>
+      section.start <= window.pageYOffset && section.end > window.pageYOffset
   );
 
   if (currentSection) {
@@ -62,7 +63,7 @@ portfolio.addEventListener("click", event => {
     );
     portfolio.style.transform = "translateX(-50%)";
     filteredNodes.forEach(node => gallery.append(node));
-    gallery.remove(0); // removing placeholder
+    gallery.remove(0); // removing placeholder img 
   }
 
   if (closeBtn) {
